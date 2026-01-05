@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varnika Shoppie | Feminine Luxury Boutique</title>
+
+<!-- PREMIUM FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink-bg:#5e2b3c;
+  --pink-soft:#7a3a52;
+  --pink-glow:#9a5670;
+  --rose-gold:#e6c08a;
+  --text-main:#fff1f6;
+  --text-soft:#f2cfdc;
+}
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'Cormorant Garamond', serif;
+  background:
+    radial-gradient(circle at top, var(--pink-glow), transparent 45%),
+    radial-gradient(circle at bottom, var(--pink-bg), transparent 55%),
+    linear-gradient(180deg, #3a1723, #5e2b3c);
+  color:var(--text-main);
+  overflow-x:hidden;
+}
+
+/* HEART CANVAS */
+#hearts{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+}
+
+/* ================= GRAND INTRO ================= */
+#grand-intro{
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at center, var(--pink-glow), transparent 60%),
+    linear-gradient(135deg,#3a1723,#5e2b3c);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  transition:1.6s ease;
+}
+#grand-intro.hide{opacity:0;visibility:hidden;}
+
+.intro-box{text-align:center;}
+
+.intro-box img{
+  width:140px;
+  filter:drop-shadow(0 0 50px rgba(230,192,138,0.7));
+}
+
+.intro-box h1{
+  margin-top:2rem;
+  font-family:'Playfair Display', serif;
+  font-size:3.8rem;
+  letter-spacing:7px;
+  background:linear-gradient(90deg,#e6c08a,#fff3d6,#e6c08a);
+  background-size:200%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:shimmer 3s infinite;
+}
+
+.intro-box span{
+  display:block;
+  margin-top:1.2rem;
+  letter-spacing:6px;
+  font-size:1rem;
+  color:var(--text-soft);
+}
+
+@keyframes shimmer{
+  0%{background-position:0%;}
+  100%{background-position:200%;}
+}
+
+/* ================= HEADER ================= */
+header{
+  position:sticky;
+  top:0;
+  background:rgba(94,43,60,0.88);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  z-index:10;
+}
+
+nav{
+  max-width:1300px;
+  margin:auto;
+  padding:1.6rem 2.5rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+
+.logo img{width:54px;}
+
+.logo h2{
+  font-family:'Playfair Display', serif;
+  letter-spacing:4px;
+  font-size:1.6rem;
+}
+
+.logo small{
+  display:block;
+  letter-spacing:5px;
+  font-size:0.7rem;
+  color:var(--rose-gold);
+}
+
+nav a{
+  margin-left:2.5rem;
+  text-decoration:none;
+  letter-spacing:3px;
+  font-size:0.95rem;
+  color:var(--text-main);
+}
+
+/* ================= HERO ================= */
+.hero{
+  position:relative;
+  z-index:2;
+  min-height:95vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:4rem 2rem;
+  background:
+    linear-gradient(rgba(94,43,60,0.75),rgba(94,43,60,0.85)),
+    url("images/hero.jpg") center/cover;
+}
+
+.hero h1{
+  font-family:'Playfair Display', serif;
+  font-size:4.8rem;
+  letter-spacing:3px;
+}
+
+.hero em{color:var(--rose-gold);}
+
+.hero p{
+  max-width:760px;
+  margin:2.6rem auto;
+  font-size:1.45rem;
+  color:var(--text-soft);
+}
+
+.hero a{
+  padding:1.4rem 4.5rem;
+  border-radius:70px;
+  background:linear-gradient(135deg,var(--rose-gold),#f7ddb0);
+  color:#4a2030;
+  text-decoration:none;
+  letter-spacing:3px;
+  box-shadow:0 25px 70px rgba(0,0,0,0.55);
+}
+
+/* ================= SECTIONS ================= */
+section{
+  position:relative;
+  z-index:2;
+  max-width:1300px;
+  margin:auto;
+  padding:7.5rem 2.5rem;
+}
+
+section h3{
+  text-align:center;
+  font-family:'Playfair Display', serif;
+  font-size:3.6rem;
+  letter-spacing:3px;
+  margin-bottom:4.5rem;
+}
+
+/* ================= PRODUCTS ================= */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:4rem;
+}
+
+.card{
+  background:rgba(255,255,255,0.08);
+  border-radius:38px;
+  overflow:hidden;
+  box-shadow:0 35px 100px rgba(0,0,0,0.45);
+  transition:0.4s;
+}
+
+.card:hover{transform:translateY(-16px);}
+
+.card img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+}
+
+.card div{padding:2.8rem;}
+
+.card h4{
+  font-family:'Playfair Display', serif;
+  font-size:1.8rem;
+}
+
+.card p{
+  margin-top:1.2rem;
+  font-size:1.3rem;
+  color:var(--text-soft);
+}
+
+/* ================= ORDER ================= */
+.order-section{
+  margin:8rem auto;
+  padding:6.5rem 2rem;
+  max-width:1050px;
+  text-align:center;
+  background:
+    linear-gradient(135deg, rgba(122,58,82,0.7), rgba(94,43,60,0.75));
+  backdrop-filter:blur(22px);
+  border-radius:80px;
+  box-shadow:0 45px 120px rgba(0,0,0,0.6);
+}
+
+.order-section h3{
+  font-family:'Playfair Display', serif;
+  font-size:3.8rem;
+}
+
+.order-section p{
+  max-width:720px;
+  margin:2.2rem auto 4.2rem;
+  font-size:1.45rem;
+  color:var(--text-soft);
+}
+
+.order-buttons{
+  display:flex;
+  justify-content:center;
+  gap:3rem;
+  flex-wrap:wrap;
+}
+
+.order-buttons a{
+  padding:1.4rem 4.8rem;
+  border-radius:70px;
+  background:linear-gradient(135deg,var(--rose-gold),#f7ddb0);
+  color:#4a2030;
+  text-decoration:none;
+  letter-spacing:3px;
+  box-shadow:0 25px 70px rgba(0,0,0,0.55);
+}
+
+/* ================= FOOTER ================= */
+footer{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding:3.8rem;
+  letter-spacing:3px;
+  background:#4a2030;
+  color:var(--text-soft);
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="hearts"></canvas>
+
+<!-- GRAND INTRO -->
+<div id="grand-intro">
+  <div class="intro-box">
+    <img src="images/logo.png" alt="Varnika Shoppie Logo">
+    <h1>VARNIKA SHOPPIE</h1>
+    <span>FEMININE · HANDCRAFTED · LUXURY</span>
+  </div>
+</div>
+
+<header>
+  <nav>
+    <div class="logo">
+      <img src="images/logo.png">
+      <div>
+        <h2>VARNIKA SHOPPIE</h2>
+        <small>LUXURY HANDCRAFTED GIFTS</small>
+      </div>
+    </div>
+    <div>
+      <a href="#collections">COLLECTIONS</a>
+      <a href="#contact">ORDER</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Where <em>Luxury</em> Blooms Forever</h1>
+    <p>
+      A women-led luxury crafting boutique which includes forever flowers,
+ customized gifts, bangles, earrings and Birthday hampers which makes your occasions memorable
+    </p>
+    <a href="#collections">ENTER COLLECTION</a>
+  </div>
+</section>
+
+<section id="collections">
+  <h3>Signature Creations</h3>
+  <div class="products">
+
+    <div class="card"><img src="images/flower1.jpg"><div><h4>Artificial Flowers</h4><p>Everlasting elegance crafted with love.</p></div></div>
+    <div class="card"><img src="images/flower2.jpg"><div><h4>Designer bangles</h4><p>Feminine jewelry with timeless grace.</p></div></div>
+    <div class="card"><img src="images/gift1.jpg"><div><h4>Memorable gifts designed to be remembered.</h4><p>Personal stories transformed into keepsakes.</p></div></div>
+    <div class="card"><img src="images/bangles.jpg"><div><h4>Designer Bracelets </h4><p>Feminine jewelry with timeless grace.</p></div></div>
+    <div class="card"><img src="images/earrings.jpg"><div><h4>Elegant Earrings</h4><p>Luxury earrings for every celebration.</p></div></div>
+    <div class="card"><img src="images/birthday.jpg"><div><h4>Luxury Bouquets</h4><p>Statement florals with premium fabric finish.</p></div></div>
+
+  </div>
+</section>
+
+<section id="contact" class="order-section">
+  <h3>Begin Your Order</h3>
+  <p>Custom luxury designs — connect with us directly.</p>
+  <div class="order-buttons">
+    <a href="https://www.instagram.com/varnika.shoppie?igsh=ajZlb3hzbGcyd2lz" target="_blank">Instagram</a>
+    <a href="https://wa.me/message/GIDTPA2PIF2UD1" target="_blank">WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Varnika Shoppie — Feminine Luxury Boutique
+</footer>
+
+<script>
+/* INTRO HIDE */
+window.addEventListener("load",()=>{
+  setTimeout(()=>document.getElementById("grand-intro").classList.add("hide"),3500);
+});
+
+/* HEART FALL */
+const canvas=document.getElementById("hearts");
+const ctx=canvas.getContext("2d");
+let hearts=[];
+function resize(){canvas.width=innerWidth;canvas.height=innerHeight;}
+window.addEventListener("resize",resize);resize();
+
+function createHeart(){
+  hearts.push({
+    x:Math.random()*canvas.width,
+    y:-20,
+    s:Math.random()*8+6,
+    v:Math.random()*1.2+0.6,
+    a:Math.random()*0.5+0.3
+  });
+}
+
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  hearts.forEach((h,i)=>{
+    ctx.globalAlpha=h.a;
+    ctx.fillStyle="#ffb6d5";
+    ctx.beginPath();
+    ctx.moveTo(h.x,h.y);
+    ctx.bezierCurveTo(h.x-h.s,h.y-h.s,h.x-h.s*2,h.y+h.s/2,h.x,h.y+h.s);
+    ctx.bezierCurveTo(h.x+h.s*2,h.y+h.s/2,h.x+h.s,h.y-h.s,h.x,h.y);
+    ctx.fill();
+    h.y+=h.v;
+    if(h.y>canvas.height) hearts.splice(i,1);
+  });
+  ctx.globalAlpha=1;
+  requestAnimationFrame(draw);
+}
+setInterval(createHeart,280);
+draw();
+</script>
+
+</body>
+</html>
